@@ -61,6 +61,11 @@ void arithmetic:: parser() ///work
             input.push_back(tmp);
         }
         }
+        ///
+        for(int i = 0; i < input.size(); i ++)
+        {
+            cout<<input[i].str<<" ";
+        }
     
 }
 bool arithmetic:: check()const 
@@ -202,7 +207,7 @@ double arithmetic:: calculate()  noexcept
         case '/':
         {
             double right = st.pop(), left = st.pop();
-            st.push(left / right);
+            st.push(double(left / right));
             break;
         }
         default:
@@ -234,23 +239,27 @@ double arithmetic:: try_calculate() //work
 {
     this->parser();
     cout<<"Check : "<<this->check()<<endl; 
-    this->to_postfix(); // tyta 
+    this->to_postfix();
+
+    for(int i = 0; i < postfix.size(); i++)
+    postfix_string += postfix[i].str + " ";
+    postfix_string.pop_back();
+    
     this->getvalue();
-    cout<<"answer: ";
     return this->calculate();
 }
 
 
 
 
-void arithmetic:: input_string_out()const noexcept //work
+string arithmetic:: input_string_out()const noexcept //work
 {
-    cout<<endl<<inputstring<<endl;
+    return inputstring;
 
 }
-void arithmetic:: postfix_string_out() const noexcept //work
+string arithmetic:: postfix_string_out()  noexcept //work
 {
-    cout<<endl<<postfix_string<<endl;
+    return postfix_string;
 }
 
 

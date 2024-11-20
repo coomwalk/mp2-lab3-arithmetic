@@ -20,6 +20,7 @@ TEST(super_stack, check_empty)
   EXPECT_EQ(first.empty(), 1);
 }
 
+
 TEST(super_stack, can_get_size)
 {
   super_stack<int> first;
@@ -58,7 +59,7 @@ TEST(super_stack, can_Top)
   EXPECT_EQ(first.Top(), 174);
 }
 
-TEST(super_stack, throw_Top_emty)
+TEST(super_stack, throw_Top_empty)
 {
   super_stack<int> first;
   ASSERT_ANY_THROW(first.Top());

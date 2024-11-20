@@ -23,7 +23,7 @@ class arithmetic
     string inputstring;
     vector <lexema> input;
     vector <lexema> postfix;
-    string postfix_string;
+    string postfix_string = "";
     map <string, double> variables;
     map <string, int> priority;
     bool check()const ;
@@ -34,8 +34,8 @@ class arithmetic
 
     public:
     
-    void input_string_out()const noexcept;
-    void postfix_string_out() const noexcept;
+    string input_string_out()const noexcept;
+    string postfix_string_out()  noexcept;
     arithmetic(string& tmp) noexcept;
     double try_calculate();
 
