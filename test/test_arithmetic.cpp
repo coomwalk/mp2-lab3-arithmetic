@@ -1,3 +1,13 @@
-// тесты для вычисления арифметических выражений
-
+// С‚РµСЃС‚С‹ РґР»СЏ РІС‹С‡РёСЃР»РµРЅРёСЏ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРёС… РІС‹СЂР°Р¶РµРЅРёР№
 #include <gtest.h>
+#include "arithmetic.h"
+
+
+TEST(arithmetic, name)
+{
+  //ASSERT_NO_THROW();
+  //EXPECT_EQ();
+  //EXPECT_NE();
+  //ASSERT_ANY_THROW();
+
+}
