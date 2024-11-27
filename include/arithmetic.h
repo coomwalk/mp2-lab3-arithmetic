@@ -16,9 +16,15 @@ struct lexema
     int type; // !переменная 1  || число-операнд 2 || !операция 3 || 4 скобка 
     string  str;
     lexema(int first, string second);
+    bool operator == (const lexema& zxc)const noexcept;
+    friend ostream& operator <<(ostream &os, const lexema& zxc);
 };
+
+class for_check;
+
 class arithmetic
 {
+    friend class for_check;
     private:
     string inputstring;
     vector <lexema> input;
@@ -33,18 +39,27 @@ class arithmetic
     double calculate()  noexcept;
 
     public:
-    
-    string input_string_out()const noexcept;
-    string postfix_string_out()  noexcept;
+
     arithmetic(string& tmp) noexcept;
     double try_calculate();
-
     ~arithmetic() = default;
+
+
+
+    string input_string_out()const noexcept;
+    string postfix_string_out()  noexcept;
 };
 
+class for_check
+{
+    public:
+    bool check_parser( arithmetic& zxc, const vector <lexema> res);
+    bool check_check(arithmetic& zxc);
+    bool check_calculate(arithmetic& zxc, const double& res);
+    bool check_postfix(arithmetic& zxc, const string& res);
 
 
-
+};
 
 
 
