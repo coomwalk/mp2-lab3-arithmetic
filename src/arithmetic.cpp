@@ -40,41 +40,37 @@ void arithmetic:: parser() ///work
     for(size_t i = 0; i < inputstring.size(); i++)
     {
         if(isalpha(inputstring[i])) /// считаю, что переменные состоят из одной буквы(не сочетание)
-        {   string k = "1";
-            k[0] = inputstring[i];
+        {   
+            string k(1,inputstring[i]);
             lexema tmp(1 ,k);
-            variables[k] = 117.0;
+            variables[k] = 0.0;
             input.push_back(tmp);
         }
         if(strchr("+-*/", inputstring[i]) != nullptr)
         {
-            string k = "1";
-            k[0] = inputstring[i];
+            string k(1,inputstring[i]);
             lexema tmp(3 ,k);
             input.push_back(tmp);
         }
         if(strchr("()", inputstring[i]) != nullptr)
         {
-            string k = "1";
-            k[0] = inputstring[i];
+            string k(1,inputstring[i]);
             lexema tmp(4 ,k);
             input.push_back(tmp);
         }
-        if(inputstring[i] == ' ') continue;
+        
         if((isdigit(inputstring[i])) || (inputstring[i] == '.') || (inputstring[i] == ','))
         {
-            string tmp1="1";
-            tmp1[0] = inputstring[i];
+            string tmp1(1,inputstring[i]);
             int z = 0;
             for( int j = i + 1; j < inputstring.size(); j++)
             {
                 if((isdigit(inputstring[j])) || (inputstring[j] == '.') || (inputstring[j] == ','))
                 {
-                    tmp1+="1";
-                    tmp1[z+1] = inputstring[j];
-                    z++;
+                   tmp1+=inputstring[j];
                     i++;
                 }
+
                 else break;
             }
             lexema tmp(2, tmp1);
